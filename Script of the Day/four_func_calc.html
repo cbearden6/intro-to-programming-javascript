@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Function Calculator</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background-color: #ffcdb2; */
+            text-align: center;
+        }
+    </style>
+    <script language="JavaScript">
+
+
+        function getSum() {
+            var first = Number(document.theForm.elements[0].value);
+            var second = Number(document.theForm.elements[1].value);
+            var sum = first + second;
+            document.getElementById("answer").innerHTML = sum;
+        }
+
+        function getDifference() {
+            var first = Number(document.theForm.elements[0].value);
+            var second = Number(document.theForm.elements[1].value);
+            var difference = first - second;
+            document.getElementById("answer").innerHTML = difference;
+        }
+
+        function getMultiply() {
+            var first = Number(document.theForm.elements[0].value);
+            var second = Number(document.theForm.elements[1].value);
+            var difference = first * second;
+            document.getElementById("answer").innerHTML = difference;
+        }
+
+        function getDivide() {
+            var first = Number(document.theForm.elements[0].value);
+            var second = Number(document.theForm.elements[1].value);
+            var difference = first / second;
+            document.getElementById("answer").innerHTML = difference;
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <form name="theForm">
+            Enter a number in each box.<br>
+            <input type="text"><br>
+            <input type="text"><br>
+            <input type="button" value="Add" onClick="getSum()">
+            <input type="button" value="Subtract" onClick="getDifference()">
+            <input type="button" value="Multiply" onClick="getMultiply()">
+            <input type="button" value="Divide" onClick="getDivide()">
+            <p id="answer"></p>
+        </form>
+    </div>
+</body>
+
+</html>

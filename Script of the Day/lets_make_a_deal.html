@@ -1,0 +1,89 @@
+<!-- let's make a deal - pain edition-->
+<!-- set up html page -->
+<!-- whip up drop down menu -->
+<!-- ask user to pick a door -->
+<!-- 3 horrible prizes and fun option -->
+<!-- reveal user's prize -->
+<!-- fun alert for one option -->
+<!-- write script for above -->
+<!-- pain -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Make A Deal - Pain Edition</title>
+    <style>
+        body {
+            /* font-size: 500%; */
+            font-family: helvetica, arial, sans-serif;
+            /* background-color: #ade8f4; */
+            background-image: url(https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=2000&h=1333&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2018%2F04%2Fscreen-shot-2018-04-30-at-10-47-22-am-1-2000.jpg);
+            background-size: 100%;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background-color: #ffcdb2; */
+            background: rgba(210, 180, 140, .80);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Let's Make a Deal - Pain Edition</h1>
+        <h2>Select a door!</h2>
+        <select id="doorSelect" onchange="prizeChange()">
+            <option value="C’mon now">Select One
+            <option value="Door #1">Door #1
+            <option value="Door #2">Door #2
+            <option value="Door #3">Door #3
+            <option value="You shouldn’t have signed up for this">Try to leave
+        </select>
+        <h3 id="answer"></h3>
+        <script>
+            function prizeChange() {
+                var door = document.getElementById("doorSelect").value;
+
+                //first option
+                if (door == "Door #1") {
+                    door += ": You win a wheelbarrow full of poisonous snakes!";
+                }
+
+                //second option
+                else if (door == "Door #2") {
+                    door += ": You win a used Ford Pinto";
+                }
+
+                //third option
+                else if (door == "Door #3") {
+                    door += ": There’s a pack of wild dogs behind this door. You win a 5 second head start!  ";
+                }
+
+                // try to leave horrible gameshow
+                else if (door == "You shouldn’t have signed up for this") {
+                    door += ". Now pick a door! ";
+                    alert('There is no escape!');
+                }
+
+                // in case user returns to "select One" option
+                else {
+                    door += ". Don’t be shy, pick a door! ";
+                }
+
+
+
+                document.getElementById("answer").innerHTML = "" + door;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

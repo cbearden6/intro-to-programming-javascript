@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing HTML Properties</title>
+    <style>
+        body {
+            font-family: helvetica;
+            background-color: white;
+            /* font-family: 'comic sans ms'; */
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background-color: white; */
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body id="theBody">
+    <div id="wrapper">
+        <h1 id="theH1">Changing HTML Properties</h1>
+        <h2>Magical Lorem Ipsum!</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ducimus a eveniet ipsam voluptatem omnis quae
+            aut explicabo, iusto porro ullam fuga doloremque reprehenderit repudiandae libero est adipisci deleniti
+            nostrum.
+            Nulla officia nesciunt mollitia ex officiis blanditiis maxime rerum! Repudiandae totam eius libero, nihil
+            beatae deleniti itaque veritatis excepturi omnis. Ratione atque laudantium iure a numquam vero, eligendi est
+            quia!
+            Libero pariatur dolorem quas maiores. Quibusdam tempora aut aliquam dicta perspiciatis? Nostrum nobis
+            perferendis numquam natus? Maiores harum soluta natus? Optio harum dolores eveniet veniam temporibus quas
+            reiciendis dolor perspiciatis.
+            Voluptas libero, quibusdam tenetur consequuntur, sequi cum numquam rerum, laboriosam repellendus suscipit
+            officia! Ipsa reprehenderit nostrum sed excepturi. Expedita cum pariatur eum doloribus possimus voluptates
+            commodi quasi est iste repellat.
+            Odit, sed tempora! Aut doloremque ullam non, consectetur totam sed in odio molestias ipsam tenetur iure,
+            dolore quidem autem nisi accusantium inventore est asperiores eveniet molestiae ut? Laboriosam, fuga
+            tempore?
+            Molestias quos rerum quisquam modi eaque voluptatem iure beatae soluta error assumenda, quis est sed minus
+            natus repellendus, maxime cum similique harum. Tenetur, commodi deleniti delectus itaque alias sit quis.
+            Nihil architecto temporibus, amet at, odio facilis illo fugiat omnis quis blanditiis hic quia, nobis vero.
+            Velit, est numquam neque reprehenderit quas quia ducimus optio necessitatibus, nam maiores repudiandae
+            libero.
+            Accusantium veritatis facilis ullam facere aperiam, expedita recusandae, pariatur maxime, possimus
+            doloremque eum harum consequuntur odio dolores. Mollitia fugiat quis aliquid, fuga optio nulla voluptate
+            accusamus perspiciatis ea vel distinctio!
+            Atque nisi dignissimos alias. Voluptatibus autem minus dolorum nesciunt pariatur tenetur beatae odit nihil,
+            recusandae veniam quas ratione quidem sequi iste vel sapiente, veritatis nisi at hic harum. Mollitia,
+            reiciendis?
+            Laborum fugiat, sequi temporibus eos explicabo ipsam! Non, nemo asperiores! Delectus nesciunt veritatis sunt
+            accusamus sed facere tempora rem, est officiis! Aperiam iste nisi culpa enim ut minima labore ducimus.</p>
+        <!-- HTML Table for Testing Purposes -->
+        <!-- <table id="myTable" style="border: 10px solid red; font-size: 20px; font-weight: bold">
+            <tr id="row1" style="color: blue">
+                <td id="1.1" style="border: 2px solid black">Row 1 Col 1</td>
+                <td id="1.2" style="border: 2px solid black">Row 1 Col 2</td>
+            </tr>
+        </table> -->
+        <!--Button to Launch a Function -->
+        <!-- <br><br><button type="submit" onclick="changeTextColor()">Change</button> -->
+        <button type="submit" onclick="hideText()">Hide Text</button>
+        <button type="submit" onclick="darkMode()">Dark Mode</button>
+        <button type="submit" onclick="changeText()">Comic Sans</button>
+        <script>
+            // First JavaScript Function
+            // Changes text color from blue to green and back again
+            // function changeTextColor() {
+            //     var textcolor = document.getElementById("row1").style.color;
+            //     if (textcolor == "green") { textcolor = "blue"; }
+            //     else { textcolor = "green"; }
+            //     document.getElementById("row1").style.color = textcolor;
+            // }
+
+            function hideText() {
+                var textColor = document.getElementById("theBody").style.color;
+                if (textColor == "white") {
+                    textColor = "black";
+                }
+                else {
+                    textColor = "white";
+                }
+                document.getElementById("theBody").style.color = textColor;
+            }
+
+            function darkMode() {
+                var darkModeText = document.getElementById("theBody").style.color;
+                var bodyColor = document.getElementById("theBody").style.background;
+                if (bodyColor == "white" && darkModeText == "black") {
+                    bodyColor = "black";
+                    darkModeText = "white";
+                }
+                else {
+                    bodyColor = "white";
+                    darkModeText = "black";
+                }
+                document.getElementById("theBody").style.background = bodyColor;
+                document.getElementById("theBody").style.color = darkModeText;
+            }
+
+            function changeText() {
+                var fontFam = document.getElementById("theBody").style.fontFamily;
+                if (fontFam == "helvetica") {
+                    fontFam = "comic sans ms";
+                }
+                else {
+                    fontFam = "helvetica";
+                }
+                document.getElementById("theBody").style.fontFamily = fontFam;
+            }
+
+
+        </script>
+    </div>
+</body>
+
+</html>

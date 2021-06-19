@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack 2: Electric Boogaloo</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Blackjack 2: Electric Boogaloo</h1>
+
+
+        <script>
+            var card = 0;
+            var total = 0;
+            var hitMe = true;
+            var dealer = 0;
+
+            function deal() {
+                return Math.ceil(11 * Math.random());
+            }
+
+            function hit() {
+                return prompt("Current total: " + total, "Take a card? Y/N");
+            }
+
+            function dealerPerson() {
+                return (deal() + deal()); //cheatin dealer always takes 2 cards
+            }
+
+            // the game
+            function play() {
+                do {
+                    if (hit() == "Y") {
+                        hitMe = true;
+                    }
+                    else {
+                        hitMe = false;
+                    }
+                    if (hitMe) {
+                        card = deal()
+                        total += card;
+                    }
+                }
+                while (hitMe && total <= 21);
+                return total;
+            }
+
+            function end() {
+                alert("Your hand is worth " + total + ". Dealer got " + dealer + ".");
+                // dealer = dealerPerson();
+            }
+            play();
+
+            dealer = dealerPerson();
+            end();
+        </script>
+    </div>
+</body>
+
+</html>

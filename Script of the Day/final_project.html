@@ -1,0 +1,333 @@
+<!-- Cody Bearden -->
+<!-- IT 102 Quarter Project -->
+<!-- Buy me a beer page w/ form, calculator, dark mode, & cheeky hidden message -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy me a beer!</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Styles for page */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Roboto, sans-serif;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-image: url(https://www.freewebheaders.com/wp-content/gallery/liquids-headers/cold-beer-foam-and-sponge-bubbles-background-header.jpg);
+            text-align: center;
+            width: 100%;
+            height: auto;
+            background-attachment: fixed;
+            overflow: hidden;
+            border-radius: 0 0 85% 85% / 30%;
+        }
+
+        header h1 {
+            font-family: 'Permanent Marker', serif;
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+
+        main {
+            width: 580px;
+            float: left;
+        }
+
+        aside {
+            margin-top: 30px;
+            width: 340px;
+            float: right;
+            padding: 10px;
+        }
+
+        footer {
+            border-top: 1px solid #666;
+            height: 50px;
+            line-height: 50px;
+            font-size: .875em;
+            clear: both;
+            color: white;
+        }
+
+        fieldset {
+            padding: 10px;
+        }
+
+        form {
+            max-width: 580px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+
+        input[type=submit] {
+            width: auto;
+            padding: 0 1.5em;
+            border-radius: 2em;
+            background-color: #fec50b;
+            transition: all .2s;
+        }
+
+        input[type=submit]:hover {
+            background-color: #f4bb01;
+        }
+
+        textarea {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            margin-bottom: 10px;
+        }
+
+        /* Typography */
+
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 8px;
+            font-family: times, serif;
+            line-height: 1.1;
+        }
+
+        main h2,
+        main h1 {
+            margin-left: 10px;
+        }
+
+        h3 {
+            font-size: 1.728em;
+            font-weight: 200;
+        }
+
+        h4 {
+            font-size: 1.44em;
+            font-weight: 200;
+        }
+
+        div p {
+            margin: 20px 0 0 10px;
+            line-height: 1.4;
+        }
+
+        aside p {
+            font-size: .9em;
+            margin: 10px 0 20px 0;
+        }
+
+        figcaption {
+            margin-bottom: 4px;
+        }
+
+        div h2 {
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body id="theBody">
+    <!-- Beginning of wrapper div -->
+    <div id="wrapper">
+        <header>
+            <h1>Buy me a beer!</h1>
+        </header>
+        <main>
+            <!-- Form containing beer info - buyBeer function -->
+            <form>
+                <fieldset>
+                    <legend>Choose a beer</legend>
+                    <label>Name:</label>
+                    <!-- name field -->
+                    <input id="nameText" type="text" placeholder="Name, alias, or social media">
+                    <label>Email:</label>
+                    <!-- email field -->
+                    <input id="emailText" type="email" placeholder="Email">
+                    <label>Payment:</label>
+                    <!-- payment drop down list -->
+                    <select name="payment" id="payType">
+                        <option name="payment" value="Venmo">Venmo - @Cbearden6</option>
+                        <option name="payment" value="Cash-app">Cash App - $cbearden6</option>
+                        <option name="payment" value="Paypal">Paypal - @cbearden6</option>
+                    </select>
+                    <label>Type of beer:</label>
+                    <!-- beer type drop down list -->
+                    <select name="beerType" id="beerType">
+                        <option name="beers[]" value="ipa">IPA</option>
+                        <option name="beers[]" value="stout">Stout</option>
+                        <option name="beers[]" value="lager">Lager</option>
+                        <option name="beers[]" value="pilsner">Pilsner</option>
+                        <option name="beers[]" value="amber">Amber Ale</option>
+                        <option name="beers[]" value="porter">Porter</option>
+                        <option name="beers[]" value="hefeweizen">Hefeweizen</option>
+                        <option name="beers[]" value="sour">Sour</option>
+                        <option name="beers[]" value="barleywine">Barleywine</option>
+                        <option name="beers[]" value="other">Other</option>
+                    </select>
+                    <label>Size:</label>
+                    <!-- beer size drop down list -->
+                    <select id="beerSize" name="size">
+                        <option value="12oz">12 oz.</option>
+                        <option value="16oz">16 oz.</option>
+                        <option value="20oz">22 oz.</option>
+                        <option value="40oz">40 oz</option>
+                        <option value="6pk">6 pack</option>
+                        <option value="12pk">12 pack</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label>Comments/Requests:</label>
+                    <!-- comments text area -->
+                    <textarea name="comments" id="commentArea"
+                        placeholder="Do you have a specific beer that you would like me to drink? As long as it’s available in Washington state, it’s all good!"></textarea>
+                    <!-- button for buyBeer function -->
+                    <input type="submit" value="Submit" onclick="buyBeer()">
+                </fieldset>
+            </form>
+            <!-- Form containing beer calculator - beerCalc function  -->
+            <form id="theForm">
+                <h2>Not sure how much cash to send my way? Use the handy calculator below</h2>
+                <label>Enter number of beers:</label>
+                <input id="beerNum" type="text"><br>
+                <input type="button" value="Submit" onClick="beerCalc()">
+                <h3 id="beerTotal"></h3>
+            </form>
+
+        </main>
+
+        <!-- Beginning of aside -->
+        <aside>
+            <h3>You buy it, I'll drink it!</h3>
+            <figure>
+                <img src="data:image/jpeg;base64,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"
+                    alt="pic of guy drinking a beer"></a>
+                <figcaption>Gallery coming soon!</a></figcaption>
+            </figure>
+            <p>Heck, you know I would never scam you out of beer money. That’s why you can find photos of me drinking
+                your beer of choice in the gallery! I’ll also do a short write-up on the beverage. </p>
+            <h4>Instructions</h4>
+            <p>It's easy! All you have to do is fill out and submit the form, then pay through the payment app you
+                have selected. Most craft beers cost around $5-$10. If you choose a specific beer, be sure to send
+                enough dough, or
+                I’ll choose a substitution
+                of the same style and call it a day. </p>
+
+            <!-- goofy beer emoji form -->
+            <form>
+                <label>Do you like beer emojis? Enter a number (between 1-30):</label>
+                <input id="beerLikes" type="text"><br>
+                <input type="button" value="Submit" onClick="beerLike()">
+                <h3 id="beerLikeTotal"></h3>
+            </form>
+
+            <!-- buttons for darkMode & leavePage functions -->
+            <button type="submit" onclick="darkMode()">Dark Mode</button>
+            <button type="submit" onclick="leavePage()">Leave Page</button>
+        </aside>
+
+        <!-- Beginning of footer containing secret message from leavePage function -->
+        <footer id="theFooter">
+            <h1>WAIT, PLEASE DONT LEAVE. BUY ME A BEER!</h1>
+        </footer>
+
+        <!-- Beginning of js script  -->
+        <script language="JavaScript">
+
+            // beer form function
+            function buyBeer() {
+                var name = document.getElementById("nameText").value;
+                var email = document.getElementById("emailText").value;
+                var pay = document.getElementById("payType").value;
+                var style = document.getElementById("beerType").value;
+                var size = document.getElementById("beerSize").value;
+                var comment = document.getElementById("commentArea").value;
+                document.write('<h1>' + 'Thanks for the beer! Check the gallery for proof of me enjoying your beverage of choice. Cheers!' + '</h1>' + '<br>' + '<h3>' + 'Name: ' + name + '<br>' + 'Email: ' + email + '<br>' + 'Payment type: ' + pay + '<br>' + 'Style: ' + style + '<br>' + 'Size: ' + size + '<br>' + 'Comment: ' + comment);
+            }
+
+            // function for dark mode
+            function darkMode() {
+                var darkModeText = document.getElementById("theBody").style.color;
+                var footerText = document.getElementById("theFooter").style.color;
+                var bodyColor = document.getElementById("theBody").style.background;
+                if (bodyColor == "white" && darkModeText == "black" && footerText == "white") {
+                    bodyColor = "black";
+                    darkModeText = "white";
+                    footerText = "black";
+                }
+                else {
+                    bodyColor = "white";
+                    darkModeText = "black";
+                    footerText = "white";
+
+                }
+                document.getElementById("theBody").style.background = bodyColor;
+                document.getElementById("theBody").style.color = darkModeText;
+                document.getElementById("theFooter").style.color = footerText;
+            }
+
+            // function for "leave page" button
+            function leavePage() {
+                var textColor = document.getElementById("theFooter").style.color;
+                if (textColor == "white") {
+                    textColor = "black";
+                }
+
+                else {
+                    textColor = "white";
+                }
+                document.getElementById("theFooter").style.color = textColor;
+            }
+
+            // function for beer calculator
+            function beerCalc() {
+                var calcField = Number(document.getElementById('beerNum').value);
+                var multiplyNum = calcField * 7.50;
+                document.getElementById("beerTotal").innerHTML = '$' + multiplyNum;
+            }
+
+            // goofy beer emoji art loop
+            // when using emojis with this loop, there's one less character than if you were to use a * or any other regular character. I guess the missing emoji is the beer i drank...or something...
+            function beerLike() {
+                var user = 0;
+                user = Number(document.getElementById('beerLikes').value);
+                while (user < 1 || user > 30) {
+                    user = alert("Quit horsing around!!!!")
+                }
+                for (row = 0; row < user; row++) {
+                    document.write("</br>");
+                    for (column = 0; column < user; column++) {
+                        document.write("&#x1F37A")
+
+                    }
+                }
+            }
+
+
+        </script>
+    </div>
+</body>
+
+</html>

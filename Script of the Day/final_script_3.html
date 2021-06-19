@@ -1,0 +1,104 @@
+<!-- Final Scripting Project 3 -->
+<!-- Cody Bearden -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Scripting Project 3</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <H1> Rock, Paper, Scissors </H1>
+
+        <H2> Beat the Robot! </H2>
+
+        <select id="choices">
+            <option value="0">Pick one</option>
+            <option value="1">Rock</option>
+            <option value="2">Paper</option>
+            <option value="3">Scissors</option>
+        </select>
+
+        </br></br>
+
+        <input type="button" value="Play!" onclick="play()"> </input>
+
+        <p id="showme"></p>
+
+        <script>
+
+            /* ************* Rock, Paper, Scissors Game Logic ***************
+            
+            Rock beats scissors.
+            Paper beats rock.
+            Scissors beat paper.
+            
+            ************* Rock, Paper, Scissors Code Below*************** */
+            // completed variable initiation. had no affect on script
+            var playerResult = 0;
+            var roboResult = 0;
+            var outcomes = ["none", "Rock", "Paper", "Scissors"];
+            var output = "";
+
+            function play() {
+                output = "";
+                playerGuess();
+                roboGuess();
+                showResult();
+            }
+            // Syntax error - Function name changed from playerguess to playerGuess
+            function playerGuess() {
+                playerResult = document.getElementById("choices").value;
+                output += "Player picks: " + outcomes[playerResult] + "</br>"
+            }
+
+            function roboGuess() {
+                // Functionality error - changed math.floor to math.ceil. Robot no longer chooses 0 (none)
+                roboResult = Math.ceil(Math.random() * 3);
+                output += "Robot picks: " + outcomes[roboResult] + "</br>"
+            }
+
+            function showResult() {
+                if (playerResult == 0) {
+                    output = "Pick Rock, Paper, or Scissors";
+                }
+                else if (playerResult == roboResult) {
+                    // Syntax error - Removed parenthesis around output to make code more uniform. It did not affect the script   
+                    output += "Tie. Again?";
+                }
+                // Syntax error - Equality operator fixed
+                // Logic error - added logical OR to else if statement below. Game has been tested and is fixed. 
+                else if (playerResult - roboResult == 1 || roboResult - playerResult == 2) {
+                    // Syntax error - Removed parenthesis around output to make code more uniform. It did not affect the script  
+                    output += "Player wins!";
+                }
+                else {
+                    // Syntax error - Removed parenthesis around output to make code more uniform. It did not affect the script  
+                    output += "Robot wins!";
+                }
+                document.getElementById("showme").innerHTML = output;
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>

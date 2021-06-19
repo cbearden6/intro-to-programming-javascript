@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck of Cards</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Deck of Cards</h1>
+        <h3 id="pain"></h3>
+        <script>
+            var suit = ["Spades", "Hearts", "Diamonds", "Clubs"];
+            var rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"];
+
+            var hand = ["empty", "empty", "empty"];
+
+            var i = 0;  //counts cards for the hand
+
+            while (hand[2] == "empty") {   //draw till 3 cards are dealt
+
+                // pick a card
+                var rando1 = Math.floor(Math.random() * 3);
+                var rando2 = Math.floor(Math.random() * 12);
+                var cards = rank[rando2] + ' of ' + suit[rando1] + '<br>';
+
+                //check for duplications, then deal
+                if (cards != "dealt") {
+                    hand[i] = cards;
+                    cards = "dealt";
+                    i++;
+
+                }  // if body
+            } // while body
+
+            //test code
+            // document.write(hand.toString());
+            document.getElementById("pain").innerHTML = hand;
+        </script>
+    </div>
+</body>
+
+</html>

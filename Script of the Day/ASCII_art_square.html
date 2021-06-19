@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Square</title>
+    <style>
+        body {
+            /* font-size: 500%; */
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ade8f4;
+            /* background-size: 100%; */
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffcdb2;
+            /* background: rgba(210, 180, 140, .80); */
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <form id="theForm">
+            <label>Do you like beer emojis? </label>
+            <input id="beerLikes" type="text"><br>
+            <input type="button" value="Submit" onClick="beerLike()">
+            <h3 id="beerLikeTotal"></h3>
+        </form>
+
+        <!-- <form name="theForm">
+            <fieldset>
+                <legend>ASCII Art Square</legend>
+                <label>Enter a number between 3-30:</label>
+                <input type="text" id="yourName"><br>
+                <input type="button" id="Submit" onClick="artSquare()">
+            </fieldset>
+
+
+        </form> -->
+
+        <!-- <script language='JavaScript'>
+            var user = 0;
+            user = prompt("Gimme number between 3-30!");
+            while (user < 3 || user > 30) {
+                user = prompt("Gimme number between 3-30!!!!")
+            }
+            for (row = 0; row < user; row++) {
+                document.write("</br>");
+                for (column = 0; column < user; column++) {
+                    document.write("*")
+                }
+            }
+        </script> -->
+
+        <script>
+            function beerLike() {
+                var user = 0;
+                // user = prompt("Gimme number between 3-30!");
+                user = Number(document.getElementById('beerLikes').value);
+                while (user < 3 || user > 30) {
+                    user = alert("Quit horsing around!!!!")
+                }
+                for (row = 0; row < user; row++) {
+                    document.write("</br>");
+                    for (column = 0; column < user; column++) {
+                        document.write("&#127866")
+
+                    }
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy me a beer! (Using a Form))</title>
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- JS for form -->
+
+    <script language="JavaScript">
+        function reveal() {
+            var beer = document.theForm.elements[1].value
+            document.write("Beer info:<h2>" + beer + "")
+        }
+    </script>
+    <style>
+        /* css for form */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Roboto, sans-serif;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 0 auto;
+        }
+
+        header {
+            /* background-image: url('../images/header.jpg'); */
+            text-align: center;
+            width: 100%;
+            height: auto;
+            background-attachment: fixed;
+            overflow: hidden;
+            border-radius: 0 0 85% 85% / 30%;
+        }
+
+        #hot {
+            margin-bottom: 50px;
+        }
+
+        #hot a {
+            text-decoration: none;
+            color: black;
+        }
+
+        header h1 {
+            font-family: 'Permanent Marker', serif;
+            font-size: 80px;
+            margin-bottom: 30px;
+        }
+
+
+        main {
+            width: 580px;
+            float: left;
+        }
+
+        aside {
+            margin-top: 30px;
+            width: 340px;
+            float: right;
+            padding: 10px;
+            /* position: fixed; */
+        }
+
+        footer {
+            border-top: 1px solid #666;
+            height: 50px;
+            line-height: 50px;
+            font-size: .875em;
+            clear: both;
+        }
+
+        footer a {
+            color: #666;
+        }
+
+        footer ul {
+            list-style-type: none;
+            float: right;
+        }
+
+        footer li {
+            float: left;
+            margin-left: 30px;
+            color: #666;
+        }
+
+
+
+        /* form styles */
+
+        fieldset {
+            padding: 10px;
+        }
+
+        legend {
+            font-size: 1.3em;
+            font-style: italic;
+            padding: 0 4px;
+            color: #b78c01;
+        }
+
+        form {
+            max-width: 580px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            height: 25px;
+            margin-bottom: 10px;
+        }
+
+        input[type=radio],
+        input[type=checkbox] {
+            width: auto;
+            height: auto;
+            margin-right: 5px;
+        }
+
+        input[type=submit] {
+            width: auto;
+            padding: 0 1.5em;
+            border-radius: 2em;
+            background-color: #fec50b;
+            transition: all .2s;
+        }
+
+        input[type=submit]:hover {
+            background-color: #f4bb01;
+        }
+
+        textarea {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        select {
+            margin-bottom: 10px;
+        }
+
+        form ul {
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        form li {
+            list-style-type: none;
+        }
+
+        .beer {
+            float: right;
+            margin: 10px 0 25px 15px;
+        }
+
+        .gallery {
+            clear: both;
+            /* margin-bottom: 25px; */
+        }
+
+        /* Typography */
+
+        h2,
+        h3,
+        h4 {
+            margin-bottom: 8px;
+            font-family: times, serif;
+            line-height: 1.1;
+        }
+
+        main h2,
+        main h1 {
+            margin-left: 10px;
+        }
+
+        h3 {
+            font-size: 1.728em;
+            font-weight: 200;
+        }
+
+        h4 {
+            font-size: 1.44em;
+            font-weight: 200;
+        }
+
+        div p {
+            margin: 20px 0 0 10px;
+            line-height: 1.4;
+        }
+
+        aside p {
+            font-size: .9em;
+            margin: 10px 0 20px 0;
+        }
+
+        figcaption {
+            margin-bottom: 4px;
+        }
+
+        div h2 {
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header>
+            <h1>Buy me a beer!</h1>
+        </header>
+        <main>
+            <!-- beginning of form -->
+            <!-- <form action="formhandler.php" method="POST"> -->
+            <form name="theForm">
+                <fieldset>
+                    <legend>Choose a beer</legend>
+                    <!-- <label>Name:</label>
+                    <input type="text" name="name" placeholder="Name, alias, or social media">
+                    <label>Email:</label>
+                    <input type="email" name="email" placeholder="Email">
+                    <label>Payment:</label>
+                    <ul>
+                        <li><input type="radio" name="payment" value="venmo">Venmo - @Cbearden6</li>
+                        <li><input type="radio" name="payment" value="Cash-app">Cash App - $cbearden6</li>
+                        <li><input type="radio" name="payment" value="paypal">Paypal - @cbearden6</li>
+                    </ul>
+                    <label>Type(s) of beer:</label>
+                    <ul>
+                        <li><input type="checkbox" name="beers[]" value="ipa">IPA</li>
+                        <li><input type="checkbox" name="beers[]" value="stout">Stout</li>
+                        <li><input type="checkbox" name="beers[]" value="lager">Lager</li>
+                        <li><input type="checkbox" name="beers[]" value="pilsner">Pilsner</li>
+                        <li><input type="checkbox" name="beers[]" value="amber">Amber Ale</li>
+                        <li><input type="checkbox" name="beers[]" value="porter">Porter</li>
+                        <li><input type="checkbox" name="beers[]" value="hefeweizen">Hefeweizen</li>
+                        <li><input type="checkbox" name="beers[]" value="sour">Sour</li>
+                        <li><input type="checkbox" name="beers[]" value="barleywine">Barleywine</li>
+                        <li><input type="checkbox" name="beers[]" value="other">Other</li>
+                    </ul>
+                    <label>Size:</label>
+                    <select name="size">
+                        <option value="12oz">12 oz.</option>
+                        <option value="16oz">16 oz.</option>
+                        <option value="20oz">22 oz.</option>
+                        <option value="40oz">40 oz</option>
+                        <option value="6pk">6 pack</option>
+                        <option value="12pk">12 pack</option>
+                        <option value="ther">Other</option>
+                    </select> -->
+                    <label>Requests/Comments:</label>
+                    <textarea name="comments"
+                        placeholder="Let me know type of beer you want me to drink. Do you have a specific beer in mind? It's all good as long as it's sold in Washington state."></textarea>
+                    <input type="button" value="Submit" onClick="reveal()">
+                </fieldset>
+            </form>
+        </main>
+        <aside>
+            <h3>You buy it, I'll drink it!</h3>
+            <!-- <figure>
+                <a href="gallery.html"><img src="images/beerme.jpg" alt="pic of guy drinking a beer"></a>
+                <figcaption>Check out the <a href="gallery.html">gallery</a></figcaption>
+            </figure> -->
+            <p>Heck, you know I would never scam you out of beer money. That’s why you can find photos of me drinking
+                your beer of choice in the gallery! I’ll also do a short write-up on the beverage. </p>
+            <h4>Instructions</h4>
+            <p>It's easy! All you have to do is fill out and submit the form, then pay through the payment app you
+                have selected. Most craft beers cost around $5-$10. If you choose a specific beer, be sure to send
+                enough dough, or
+                I’ll choose a substitution
+                of the same style and call it a day. </p>
+        </aside>
+        <!-- <footer>
+            <ul>
+                <li>Copyright 2021 &copy;</li>
+                <li>All Rights Reserved</li>
+                <li><a href="">Terms of Use</a></li>
+                <li><a href="../index.html">Web Design by Cody</a></li>
+                <li><a
+                        href="https://validator.w3.org/nu/?doc=http%3A%2F%2Fcompass.northseattle.edu%2F%7Ecbearden%2Fit161%2Fform%2Findex.html">Valid</a>
+                </li>
+            </ul>
+        </footer> -->
+    </div>
+</body>
+
+</html>

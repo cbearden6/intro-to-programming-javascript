@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madlib Time!</title>
+
+    <script language="JavaScript">
+        function madlibTime() {
+            var yourName = document.getElementById("yourName").value;
+            var firstVerb = document.getElementById("firstVerb").value;
+            var nounThing = document.getElementById("nounThing").value;
+            var yourName2 = document.getElementById("yourName2").value;
+            var firstAdjective = document.getElementById("firstAdjective").value;
+            var nounName = document.getElementById("nounName").value;
+            var secondVerb = document.getElementById("secondVerb").value;
+            var secondAdjective = document.getElementById("secondAdjective").value;
+            var lastNoun = document.getElementById("lastNoun").value;
+            document.write(yourName + ' ' + firstVerb + ' to the grocery store to buy a ' + nounThing + ' .After thoroughly searching the store, the item was nowhere to be found.' + '"' + 'Hey ' + yourName2 + '"' + ', yelled a familiar voice.It was ' + firstAdjective + ' ' + nounName + ' from high school...at least you think that is their name. The moment you’d been dreading had finally come, and its time to escape. It is time to ' + secondVerb + ' away from ' + secondAdjective + ' ' + lastNoun + ' before they invite you to the upcoming high school reunion.');
+
+        }
+    </script>
+
+    <style>
+        body {
+            /* font-size: 500%; */
+            font-family: helvetica, arial, sans-serif;
+            /* background-color: #ade8f4; */
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffcdb2;
+            /* text-align: center; */
+        }
+
+        input,
+        label {
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <form name="theForm">
+            <fieldset>
+                <legend>Madlib time! fill out the fields below for a wacky madlib</legend>
+                <label>Enter your name:</label>
+                <input type="text" id="yourName"><br>
+                <label>Enter a verb:</label>
+                <input type="text" id="firstVerb"><br>
+                <label>Enter an item:</label>
+                <input type="text" id="nounThing"><br>
+                <label>Enter your name:</label>
+                <input type="text" id="yourName2"><br>
+                <label>Enter an adjective:</label>
+                <input type="text" id="firstAdjective"><br>
+                <label>Enter a name:</label>
+                <input type="text" id="nounName"><br>
+                <label>Enter a verb:</label>
+                <input type="text" id="secondVerb"><br>
+                <label>Enter an adjective:</label>
+                <input type="text" id="secondAdjective"><br>
+                <label>Enter a name:</label>
+                <input type="text" id="lastNoun"><br>
+                <input type="button" value="Submit" onClick="madlibTime()">
+            </fieldset>
+        </form>
+
+    </div>
+</body>
+
+</html>

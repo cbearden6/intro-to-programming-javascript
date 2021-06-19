@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion table 2</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background-color: #ffcdb2; */
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            width: 50%;
+            background-color: #e8e8e4;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <p id="theTableHere"></p>
+
+        <script>
+            //declare variables
+            var max = -1;
+            var row = 0;
+            var col = 0;
+            var theTable = "";
+
+            //get the number of rows &
+            //check for correct data entry
+            max = Number(prompt("Choose a number between 0-15!"));
+            while (max < 0 || max > 15) {
+                max = Number(prompt("Gimme a number between 0-15!!!!"));
+            }
+
+            // while (max < 0) {
+            //     max = Number(prompt("Enter a between 1-15", ""));
+            // }
+
+            function getHex(decimal) {
+
+                switch (decimal) {
+                    case 10:
+                        hexNumber = "A";
+                        break;
+                    case 11:
+                        hexNumber = "B";
+                        break;
+                    case 12:
+                        hexNumber = "C";
+                        break;
+                    case 13:
+                        hexNumber = "D";
+                        break;
+                    case 14:
+                        hexNumber = "E";
+                        break;
+                    case 15:
+                        hexNumber = "F";
+                        break;
+                    default:
+                        hexNumber = decimal;
+                }
+
+                return hexNumber;
+            }
+
+            function getBinary(decimal) {
+                var quotient = decimal;
+                var _8sPlace = "";
+                var _4sPlace = "";
+                var _2sPlace = "";
+                var _1sPlace = "";
+
+                if (quotient / 8 >= 1) {
+                    _8sPlace = "1";
+                    quotient = quotient - 8;
+                }
+                else { _8sPlace = "0"; }
+
+                if (quotient / 4 >= 1) {
+                    _4sPlace = "1";
+                    quotient = quotient - 4;
+                }
+                else { _4sPlace = "0"; }
+
+                if (quotient / 2 >= 1) {
+                    _2sPlace = "1";
+                    quotient = quotient - 2;
+                }
+                else { _2sPlace = "0"; }
+
+                if (quotient == 1) { _1sPlace = "1"; }
+                else { _1sPlace = "0"; }
+
+                binaryNumber = _8sPlace + _4sPlace + _2sPlace + _1sPlace
+
+                return binaryNumber;
+            }
+
+            // build the table
+            theTable += "<table border = '1'>"
+            theTable += "<tr><th>Decimal</th>"
+            theTable += "<th>Hex</th>"
+            theTable += "<th>Binary</th><tr>"
+
+            // make table rows
+            for (row = 0; row <= max; row++) {
+                theTable += '<tr><td>' + row + '</td><td>' + getHex(row) + '</td><td>' + getBinary(row) + '</td><tr>';
+            } theTable += '</table>';
+
+            // print the output
+            document.getElementById('theTableHere').innerHTML = theTable
+        </script>
+    </div>
+</body>
+
+</html>

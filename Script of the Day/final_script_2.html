@@ -1,0 +1,88 @@
+<!-- Final Scripting Project 2  -->
+<!-- Cody Bearden -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Scripting Project 2</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Final Scripting Project 2</h1>
+        <p id="demo"></p>
+        <script>
+            var output = "";
+            var SouthSound = ["Ketron", "Anderson", "Fox", "Harstine"];
+            var NorthSound = ["Bainbridge", "Whidbey", "Blake"]
+            var PugetSound = SouthSound.concat(NorthSound);
+
+            output += PugetSound.toString() + "<br>";
+            //3)Put "Camano" on the left hand end of PugetSound.
+            PugetSound.unshift('Camano');
+            output += PugetSound.toString() + "<br>";
+            //4) Put Herron on the right hand end of PugetSound.
+            PugetSound.push('Herron');
+            output += PugetSound.toString() + "<br>";
+            //5) Alphabetize PugetSound.
+            PugetSound.sort();
+            output += PugetSound.toString() + "<br>";
+            //6) Remove the last element on the right hand side of PugetSound.
+            PugetSound.pop();
+            output += PugetSound.toString() + "<br>";
+            //7) Replace Harstine and Herron with Fidalgo
+            PugetSound.splice(5, 2, 'Fidalgo');
+            output += PugetSound.toString() + "<br>";
+            //8) Place PugetSound into reverse alphabetical order.
+            PugetSound.sort()
+            PugetSound.reverse()
+            output += PugetSound.toString() + "<br>";
+            //9) Sort PugetSound at random.
+            for (var i = PugetSound.length - 1; i > 5; i--) {
+                var j = Math.floor(Math.random() * i)
+                var temp = PugetSound[i]
+                PugetSound[i] = PugetSound[j]
+                PugetSound[j] = temp
+                output += PugetSound.toString() + "<br>";
+            }
+            //10 Test code
+            document.getElementById("demo").innerHTML = output;
+
+
+
+            //Finish This!
+
+            /* Sample Output (last line may vary)
+            Ketron,Anderson,Fox,Harstine,Bainbridge,Whidbey,Blake
+            Camano,Ketron,Anderson,Fox,Harstine,Bainbridge,Whidbey,Blake
+            Camano,Ketron,Anderson,Fox,Harstine,Bainbridge,Whidbey,Blake,Herron
+            Anderson,Bainbridge,Blake,Camano,Fox,Harstine,Herron,Ketron,Whidbey
+            Anderson,Bainbridge,Blake,Camano,Fox,Harstine,Herron,Ketron
+            Anderson,Bainbridge,Blake,Camano,Fox,Fidalgo,Ketron
+            Ketron,Fox,Fidalgo,Camano,Blake,Bainbridge,Anderson
+            Anderson,Camano,Fox,Ketron,Fidalgo,Blake,Bainbridge
+            */
+
+
+        </script>
+    </div>
+</body>
+
+</html>

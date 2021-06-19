@@ -1,0 +1,72 @@
+<!-- prime/composite number tester -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Tester</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Prime Number Tester</h1>
+        <!-- the form -->
+        <form name="theForm">
+            Enter a number:<br>
+            <input type="text"><br>
+            <input type="button" value="Test" onClick="numTest()">
+            <h3 id="answer"></h3>
+        </form>
+        <script>
+            function numTest() {
+                // Declare variables/user input
+                var userNum = Number(document.theForm.elements[0].value);
+                var primeNum = true;
+
+                // if user enters 1 or 0
+                if (userNum <= 1) {
+                    document.getElementById("answer").innerHTML = "That's not a prime number!";
+
+                }
+
+                else if (userNum > 1) {
+                    // prime tester maths loop
+                    for (var i = 2; i < userNum; i++) {
+                        if (userNum % i == 0) {
+                            primeNum = false;
+                            break;
+                        }
+                    }
+
+                    if (primeNum) {
+                        document.getElementById("answer").innerHTML = userNum + " is a prime number.";
+                    }
+                    else {
+                        document.getElementById("answer").innerHTML = userNum + " is a composite number.";
+                    }
+
+                }
+            }
+
+
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Conversion Table</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background-color: #ffcdb2; */
+            text-align: center;
+        }
+
+        table {
+            margin: auto;
+            width: 50%;
+            background-color: #e8e8e4;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Decimal to Hex & Binary Conversion</h1>
+
+        <script language='JavaScript'>
+
+
+            var user = 0;
+            var theTable = "";
+
+            theTable += "<table border = '1'>"
+            theTable += "<tr><th>Decimal</th>"
+            theTable += "<th>Hex</th>"
+            theTable += "<th>Binary</th><tr>"
+
+            user = prompt("Choose a number between 0-15!");
+            while (user < 0 || user > 15) {
+                user = prompt("Gimme a number between 0-15!!!!")
+            }
+
+            if (user == "0") {
+                document.write(theTable += '<tr><td>0</td><td>0</td><td>0000</td></tr>')
+            }
+
+            else if (user == "1") {
+                document.write(theTable += '<tr><td>1</td><td>1</td><td>0001</td></tr>')
+            }
+
+            else if (user == "2") {
+                document.write(theTable += '<tr><td>2</td><td>2</td><td>0010</td></tr>')
+            }
+
+            else if (user == "3") {
+                document.write(theTable += '<tr><td>3</td><td>3</td><td>0011</td></tr>')
+            }
+
+            else if (user == "4") {
+                document.write(theTable += '<tr><td>4</td><td>4</td><td>0100</td></tr>')
+            }
+
+            else if (user == "5") {
+                document.write(theTable += '<tr><td>5</td><td>5</td><td>0101</td></tr>')
+            }
+
+            else if (user == "6") {
+                document.write(theTable += '<tr><td>6</td><td>6</td><td>0110</td></tr>')
+            }
+
+            else if (user == "7") {
+                document.write(theTable += '<tr><td>7</td><td>7</td><td>0111</td></tr>')
+            }
+
+            else if (user == "8") {
+                document.write(theTable += '<tr><td>8</td><td>8</td><td>1000</td></tr>')
+            }
+
+            else if (user == "9") {
+                document.write(theTable += '<tr><td>9</td><td>9</td><td>1001</td></tr>')
+            }
+
+            else if (user == "10") {
+                document.write(theTable += '<tr><td>10</td><td>A</td><td>1010</td></tr>')
+            }
+
+            else if (user == "11") {
+                document.write(theTable += '<tr><td>11</td><td>B</td><td>1011</td></tr>')
+            }
+
+            else if (user == "12") {
+                document.write(theTable += '<tr><td>12</td><td>C</td><td>1100</td></tr>')
+            }
+
+            else if (user == "13") {
+                document.write(theTable += '<tr><td>13</td><td>D</td><td>1101</td></tr>')
+            }
+
+            else if (user == "14") {
+                document.write(theTable += '<tr><td>14</td><td>E</td><td>1110</td></tr>')
+            }
+
+            else if (user == "15") {
+                document.write(theTable += '<tr><td>15</td><td>F</td><td>1111</td></tr>')
+            }
+
+        </script>
+    </div>
+</body>
+
+</html>

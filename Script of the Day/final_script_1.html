@@ -1,0 +1,78 @@
+<!-- Final Scripting Project 1 -->
+<!-- Cody Bearden -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Scripting Project 1</title>
+    <!-- styles for page  -->
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Final Scripting Project 1</h1>
+        <p id="demo"></p>
+        <script>
+            // boat object. name, tooFull, seats, & capacity properties have been added
+            function Boat(length, name, seats) {
+                this.length = length;
+                this.name = name;
+                this.passengers = 0;
+                this.tooFull = false;
+                this.seats = seats;
+                this.capacity = seats;
+
+                // people property has been added to this.load function
+                this.load = function (people) {
+                    this.people = 5;
+                }
+
+                // function has been updated to reflect this.passengers + this.people. Alert text has also been added
+                this.checkSafety = function () {
+                    if (this.passengers + this.people > this.capacity) {
+                        this.tooFull = true;
+                        alert('Abandon ship!')
+                    }
+                    else { this.tooFull = false; }
+                }
+            };
+
+
+
+            //test code
+
+            // different parameters have been used and tested 
+            test = new Boat(20, "Rafty", 4);
+
+            alert("Welcome to the good ship " + test.name); //expected output = a string
+            alert(test.name + " is " + test.length + " feet long.") //expected output = a string
+            test.checkSafety(); //expected output - none
+
+            // this.people parameter has been added
+            test.load(this.people);
+            // test.load(5);
+
+            test.checkSafety();
+            //expected output - "Abandon ship!"
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Object</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Card Object</h1>
+        <script>
+
+            //Card constructor
+            function Card(suit, rank, isVisible) {
+                this.suit = suit
+                this.rank = rank;
+                this.isVisible = false //we always deal the cards face down
+                this.show = function () {
+                    this.isVisible = true;
+                }
+                this.hide = function () {
+                    this.isVisible = false;
+                }
+            }
+
+            //Card instances
+            var theCard1 = new Card("Hearts", "2");
+            var theCard2 = new Card("Spades", "5");
+            var theCard3 = new Card("Hearts", "Q");
+            var theCard4 = new Card("Hearts", "J");
+            var theCard5 = new Card("Diamonds", "6");
+
+
+            //test code
+
+            var output = "";
+
+            theCard1.show();
+            theCard2.show();
+            theCard3.show();
+            theCard4.show();
+            theCard5.show();
+
+            if (theCard1.isVisible) { output += theCard1.rank + " of " + theCard1.suit + '<br>' }
+            if (theCard2.isVisible) { output += theCard2.rank + " of " + theCard2.suit + '<br>' }
+            if (theCard3.isVisible) { output += theCard3.rank + " of " + theCard3.suit + '<br>' }
+            if (theCard4.isVisible) { output += theCard4.rank + " of " + theCard4.suit + '<br>' }
+            if (theCard5.isVisible) { output += theCard5.rank + " of " + theCard5.suit + '<br>' }
+
+
+            document.write("The cards showing are: " + '<br>' + output);
+
+
+
+        </script>
+    </div>
+</body>
+
+</html>

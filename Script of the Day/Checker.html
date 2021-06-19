@@ -1,0 +1,152 @@
+<!-- Assignment #1: Math Requirements Checker -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Requirements Checker</title>
+    <!-- styles for page -->
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            /* background-color: #ece4db; */
+            background-image: url(https://members-csforall.imgix.net/members/logos/logo-center.jpg);
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background-color: #e8e8e4; */
+            background: rgba(187, 177, 165, 0.8);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- everything within this div is pretty due to css rules in #wrapper above -->
+    <div id="wrapper">
+        <h1>Math Requirements Checker</h1>
+        <h2>Do you have enough math to apply for admission to the BAS in Application Development at North Seattle
+            College?
+            If not, we’ll offer a suggestion on which class to take next.</h2>
+        <h3>Select the latest math class you have passed:</h3>
+        <!-- drop down menu with math classes -->
+        <select id="dropDown" onchange="classSelect()">
+            <option value="C’mon now">Select One
+            <option value="Math 081">Math 081
+            <option value="ABE 081">ABE 081
+            <option value="Math 080">Math 080
+            <option value="ABE 061">ABE 061
+            <option value="AHE 103">AHE 103
+            <option value="EET 109">EET 109
+            <option value="Math 089">Math 089
+            <option value="Math 090">Math 090
+            <option value="Math 084">Math 084
+            <option value="ABE 084">ABE 084
+            <option value="Math 085">Math 085
+            <option value="ABE 085">ABE 085
+            <option value="Math 097">Math 097
+            <option value="Math 098">Math 098
+            <option value="Math 099">Math 099
+            <option value="Math 116">Math 116
+            <option value="Math &148">Math &148
+            <option value="Math &141">Math &141
+            <option value="Math &142">Math &142
+            <option value="Math &151">Math &151
+            <option value="Math &152">Math &152
+            <option value="Math &163">Math &163
+        </select>
+        <!-- The answer and recommendation are displayed in the h4 below -->
+        <h4 id="output"></h4>
+        <p><i>*Students must earn 2.0 or higher to move from ABE math to the next level (ABE
+                or pre-college)</i></p>
+
+        <!-- script for drop down class list -->
+        <script>
+            // function for drop down selection
+            function classSelect() {
+                var mathClass = document.getElementById("dropDown").value;
+
+                //If user selects Math 081 or ABE 081
+                if (mathClass == "Math 081" || mathClass == "ABE 081") {
+                    mathClass += ": Take Math 097, Math 084, or ABE 084 next.";
+                }
+
+                //If user selects Math 080 or ABE 061
+                else if (mathClass == "Math 080" || mathClass == "ABE 061") {
+                    mathClass += ": Due to this class being self-paced, students earn credit at the end of the quarter for the equivalent math course (Math 081 to Math 098) that they complete. If you’ve completed Math 080/ABE 061, then take Math 084 or ABE 084. If you’ve completed Math 084 or ABE 084, then take Math 085 or ABE 085. If you’ve taken Math 085 or ABE 085, then take Math 098 or ABE 098. Alternatively, you also have the option to take Math 081 or ABE 081";
+                }
+
+                //If user selects AHE 103 or EET 109
+                else if (mathClass == "AHE 103" || mathClass == "EET 109") {
+                    mathClass += ": Take Math 097, Math 084, or ABE 084 next! You could also take Math 080 or ABE 061 if you would like to a multi-level course with the potential of taking an equivalent to Math 084, ABE 084, Math 085, ABE 085, Math 098, or ABE 098.";
+                }
+
+                //If user selects Math 089 or Math 090
+                else if (mathClass == "Math 089" || mathClass == "Math 090") {
+                    mathClass += ": Take Math 081, ABE 081, or you could also take the multi-level course Math 080/ABE 061 next.";
+                }
+
+                //If user selects Math 084 or ABE 084
+                else if (mathClass == "Math 084" || mathClass == "ABE 084") {
+                    mathClass += ": Take Math 085 or ABE 085 next.";
+                }
+
+                //If user selects ABE 085
+                else if (mathClass == "ABE 085") {
+                    mathClass += ": Take Math 098 or ABE 098 next.";
+                }
+
+                //If user selects Math 085 or Math 097
+                else if (mathClass == "Math 085" || mathClass == "Math 097") {
+                    mathClass += ": Take Math 098 or ABE 098 next. With instructor permission, you could possibly take Math 099 (Math 099 is a corequisite course to be taken together with Math &107 or Math &146).";
+                }
+
+                //If user selects Math 098
+                else if (mathClass == "Math 098") {
+                    mathClass += ": If you had a 2.5 or higher, you can take Math &146 (Math &146 will fulfill your math requirement to apply) or Math &141.";
+                }
+
+                //If user selects Math 099
+                else if (mathClass == "Math 099") {
+                    mathClass += ": If you choose Math &146 as your corequisite and passed, then you can apply for admission!";
+                }
+
+                //If user selects Math 116 or Math &148
+                else if (mathClass == "Math 116" || mathClass == "Math &148") {
+                    mathClass += ": You can take Math &146 (Math &146 will fulfill your math requirement to apply) or Math &141.";
+                }
+
+                //If user selects Math &141
+                else if (mathClass == "Math &141") {
+                    mathClass += ": Take Math &142. You can apply for admission if you pass!";
+                }
+
+                //If user selects Math &142
+                else if (mathClass == "Math &142") {
+                    mathClass += ": You can apply for admission if you passed!";
+                }
+
+                //If user selects Math &151, Math &152, or Math&163
+                else if (mathClass == "Math &151" || mathClass == "Math &152" || mathClass == "Math &163") {
+                    mathClass += ": You can apply for admission!";
+                }
+
+                // If user wants to be cheeky and choose the select option after already choosing a class
+                else {
+                    mathClass += ", choose a class!";
+                }
+
+
+                // displays selection on h4 markup with id=answer
+                document.getElementById("output").innerHTML = "" + mathClass;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

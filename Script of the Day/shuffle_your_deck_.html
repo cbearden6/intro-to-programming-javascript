@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shuffle Your Deck</title>
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            background-color: #ece4db;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #e8e8e4;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Shuffle Your Deck</h1>
+        <h3 id="pain"></h3>
+
+        <button type="submit" onclick="inOrder()">In Order</button>
+        <button type="submit" onclick="inReverse()">Reverse</button>
+        <button type="submit" onclick="praiseRando()">Random</button>
+
+        <script>
+            // cards in order function 
+            function inOrder() {
+                var output = "";
+
+                //define Card object
+
+                function Card(rank, suit) {
+                    this.rank = rank
+                    this.suit = suit
+                }
+
+                //define two arrays
+                var rank = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+                var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]
+
+                //loop through both arrays
+
+                var cardIndex = 0;
+                var card = [];
+                var r;
+                for (r in rank) {
+                    var s;
+                    for (s in suits) {
+                        cardIndex++;
+                        card[cardIndex] = new Card(rank[r], suits[s]);
+                    }
+                }
+
+                // sort cards
+                card.sort();
+
+                // create output
+                var i;
+                for (i in card) {
+                    output += card[i].rank + " of " + card[i].suit + "<br>";
+                }
+
+
+
+                //write the output
+                document.getElementById("pain").innerHTML = output;
+            }
+
+            // cards in reverse function
+            function inReverse() {
+                var output = "";
+
+                //define Card object
+
+                function Card(rank, suit) {
+                    this.rank = rank
+                    this.suit = suit
+                }
+
+                //define two arrays
+                var rank = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+                var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]
+
+                //loop through both arrays
+
+                var cardIndex = 0;
+                var card = [];
+                var r;
+                for (r in rank) {
+                    var s;
+                    for (s in suits) {
+                        cardIndex++;
+                        card[cardIndex] = new Card(rank[r], suits[s]);
+                    }
+                }
+
+                // reverse cards
+                card.reverse();
+
+                //    create output
+                var i;
+                for (i in card) {
+                    output += card[i].rank + " of " + card[i].suit + "<br>";
+                }
+
+                //write the output
+                document.getElementById("pain").innerHTML = output;
+            }
+
+            // rando cards function
+            function praiseRando() {
+                var output = "";
+
+                //define Card object
+
+                function Card(rank, suit) {
+                    this.rank = rank
+                    this.suit = suit
+                }
+
+                //define two arrays
+                var rank = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King"]
+                var suits = ["Hearts", "Clubs", "Spades", "Diamonds"]
+
+                //loop through both arrays
+
+                var cardIndex = 0;
+                var card = [];
+                var r;
+                for (r in rank) {
+                    var s;
+                    for (s in suits) {
+                        cardIndex++;
+                        card[cardIndex] = new Card(rank[r], suits[s]);
+                    }
+                }
+
+                // praise rando
+                card.sort(function (a, b) {
+                    return (0.5 - Math.random());
+                });
+
+                // create output
+                var i;
+                for (i in card) {
+                    output += card[i].rank + " of " + card[i].suit + "<br>";
+                }
+
+                //write the output
+                document.getElementById("pain").innerHTML = output;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!-- Assignment #2: Web Color Picker Form -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Color Picker Form</title>
+    <!-- styles for page -->
+    <style>
+        body {
+            font-family: helvetica, arial, sans-serif;
+            /* background-color: #ece4db; */
+            background-image: url(https://miro.medium.com/max/2880/0*tAabtLkBKJL7ii2-.jpg);
+            background-size: 100%;
+        }
+
+        #wrapper {
+            width: 940px;
+            margin: 20px auto;
+            padding: 20px;
+            /* background-color: #e8e8e4; */
+            background: rgba(187, 177, 165, 0.911);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- everything within this div is pretty due to css rules in #wrapper above -->
+    <div id="wrapper">
+        <h1>Color Picker Madness!</h1>
+        <h2>Create a custom color by choosing the amount of red, green, and blue</h2>
+        <!-- form containing red, blue, & green -->
+        <form name='theForm'>
+            Amount of red:<br>
+            <!-- drop down for amount of red -->
+            <select>
+                <option value='ff'>Maximum</option>
+                <option value='cc'>High</option>
+                <option value='88'>Medium</option>
+                <option value='44'>Low</option>
+                <option value='00'>None</option>
+            </select>
+            <br><br>
+            Amount of green:<br>
+            <!-- drop down for amount of green -->
+            <select>
+                <option value='ff'>Maximum</option>
+                <option value='cc'>High</option>
+                <option value='88'>Medium</option>
+                <option value='44'>Low</option>
+                <option value='00'>None</option>
+            </select>
+            <br><br>
+            Amount of blue:<br>
+            <!-- drop down for amount of blue -->
+            <select>
+                <option value='ff'>Maximum</option>
+                <option value='cc'>High</option>
+                <option value='88'>Medium</option>
+                <option value='44'>Low</option>
+                <option value='00'>None</option>
+            </select>
+            <br><br>
+            <input type="button" value="Show Color" onclick='colorPicker()'>
+        </form>
+        <!-- color output from form rgb -->
+        <h2 id="outputHere"></h2>
+
+        <script>
+            // function for color picker drop down
+            function colorPicker() {
+                // declare variables and get input
+                var output = '';
+                var red = document.theForm.elements[0].value;
+                var green = document.theForm.elements[1].value;
+                var blue = document.theForm.elements[2].value;
+                var colorCombo = '';
+
+                // var for output color combo
+                colorCombo = '#' + red + green + blue;
+
+                // color picker output
+                output = 'Your wacky color combo is: ' + '#' + red + green + blue + '!';
+
+                // publish output/h2 output color styling
+                outputHere.style.color = colorCombo
+                document.getElementById('outputHere').innerHTML = output;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
