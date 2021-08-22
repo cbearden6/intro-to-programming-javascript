@@ -1,2 +1,2 @@
 # intro-to-programming-javascript
-assignment dump from NSC's intro to programming 
+Assignment dump from a JavaScript class. Mostly card games and other fun stuff.
